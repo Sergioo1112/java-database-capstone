@@ -90,3 +90,13 @@
 - Foreign keys ensure referential integrity between related tables.
 - MongoDB is used for prescriptions because prescription data can vary in length and structure.
 - Nested objects and arrays allow multiple medications and follow-up information to be stored in a single document.
+
+### Additional Design Notes
+
+- Appointments should not be automatically deleted if a patient is removed, in order to preserve medical history.
+- Doctors should not be allowed to have overlapping appointments. This should be validated by the application before creating a new appointment.
+- Each prescription is linked to a specific appointment using the appointmentId field.
+- MongoDB is used because prescription data may evolve over time with additional fields, notes, or attachments without changing the database schema.
+
+
+
